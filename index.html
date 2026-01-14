@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CA Vidhi Patel | Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#F6F0D7;
+  --accent1:#C5D89D;
+  --accent2:#9CAB84;
+  --accent3:#89986D;
+  --glass:rgba(153,134,109,0.12);
+  --border:rgba(153,134,109,0.3);
+  --text:#2a251d;
+  --muted:#5a5248;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Inter,system-ui;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  min-height:100vh;
+}
+
+/* FLOATING 3D SHAPES */
+.shape{
+  position:fixed;
+  pointer-events:none;
+  z-index:0;
+  opacity:0.5;
+}
+
+.shape1{
+  width:250px;
+  height:250px;
+  background:linear-gradient(135deg,rgba(156,171,132,0.5),rgba(137,152,109,0.5));
+  border-radius:30%70%70%30%/30%30%70%70%;
+  top:-80px;
+  right:-80px;
+  animation:float1 10s ease-in-out infinite;
+}
+
+.shape2{
+  width:180px;
+  height:180px;
+  background:linear-gradient(135deg,rgba(137,152,109,0.5),rgba(120,135,100,0.5));
+  border-radius:60%40%30%70%/60%30%70%40%;
+  bottom:-40px;
+  left:-40px;
+  animation:float2 12s ease-in-out infinite reverse;
+}
+
+.shape3{
+  width:120px;
+  height:120px;
+  background:linear-gradient(135deg,rgba(156,171,132,0.4),rgba(120,135,100,0.4));
+  border-radius:50%;
+  top:30%;
+  left:5%;
+  animation:float3 15s ease-in-out infinite;
+}
+
+@keyframes float1{
+  0%,100%{transform:translateY(0) rotate(0deg);}
+  50%{transform:translateY(-20px) rotate(5deg);}
+}
+
+@keyframes float2{
+  0%,100%{transform:translateY(0) rotate(0deg);}
+  50%{transform:translateY(-30px) rotate(-5deg);}
+}
+
+@keyframes float3{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-20px);}
+}
+
+/* CURSOR GLOW */
+.cursor{
+  position:fixed;
+  width:400px;
+  height:400px;
+  background:radial-gradient(circle,rgba(197,216,157,0.15),transparent 50%);
+  opacity:.15;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  z-index:100;
+}
+
+/* LAYOUT */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:80px 24px;
+  position:relative;
+  z-index:1;
+}
+
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:1.3fr .7fr;
+  gap:60px;
+  align-items:start;
+}
+
+.hero h1{
+  font-size:4rem;
+  font-weight:800;
+  color:var(--text);
+  letter-spacing:-1px;
+  line-height:1.1;
+  text-shadow:0 2px 10px rgba(137,152,109,0.2);
+}
+
+.hero span{
+  background:linear-gradient(135deg,var(--accent3),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero p{
+  margin-top:24px;
+  max-width:520px;
+  color:var(--muted);
+  font-size:1.2rem;
+  font-weight:500;
+  line-height:1.7;
+}
+
+/* 3D GLASS CARD */
+.card{
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:32px;
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+  transform-style:preserve-3d;
+  transform:perspective(1200px);
+  box-shadow:0 8px 32px rgba(137,152,109,0.1);
+}
+
+.card:hover{
+  transform:perspective(1200px) rotateX(2deg) rotateY(-2deg) translateY(-8px);
+  box-shadow:0 20px 40px rgba(137,152,109,0.2);
+  border-color:var(--accent1);
+}
+
+.card p{
+  font-weight:600;
+  font-size:1rem;
+  color:var(--text);
+}
+
+.card p strong{
+  color:var(--accent3);
+  font-weight:700;
+}
+
+/* STATS */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  margin-top:45px;
+  gap:20px;
+}
+
+.stat{
+  text-align:center;
+  padding:28px 20px;
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:16px;
+  transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+  transform-style:preserve-3d;
+  transform:perspective(1200px);
+}
+
+.stat:hover{
+  transform:perspective(1200px) translateZ(15px) translateY(-8px);
+  border-color:var(--accent1);
+  box-shadow:0 15px 30px rgba(137,152,109,0.2);
+}
+
+.stat h3{
+  font-size:2.8rem;
+  font-weight:800;
+  color:var(--text);
+  text-shadow:0 4px 15px rgba(137,152,109,0.3);
+  letter-spacing:-1px;
+}
+
+.stat p{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:1rem;
+  font-weight:600;
+}
+
+/* SECTIONS */
+section{margin-top:120px}
+
+h2{
+  font-size:2.4rem;
+  font-weight:800;
+  color:var(--text);
+  margin-bottom:30px;
+  position:relative;
+  display:inline-block;
+  letter-spacing:-0.5px;
+}
+
+h2::after{
+  content:"";
+  position:absolute;
+  bottom:-6px;
+  left:0;
+  width:70px;
+  height:4px;
+  background:linear-gradient(90deg,var(--accent1),var(--accent2));
+  border-radius:3px;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.4s ease;
+}
+
+h2:hover::after{
+  transform:scaleX(1);
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+
+/* 3D TIMELINE */
+.timeline{
+  border-left:3px solid var(--border);
+  padding-left:35px;
+}
+
+.timeline .item{
+  margin-bottom:30px;
+  padding:28px 32px;
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:16px;
+  position:relative;
+  transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+  transform-style:preserve-3d;
+  transform:perspective(1200px);
+}
+
+.timeline .item:hover{
+  transform:perspective(1200px) rotateX(1deg) rotateY(-1deg) translateX(12px);
+  border-color:var(--accent1);
+  box-shadow:0 15px 30px rgba(137,152,109,0.15);
+}
+
+.timeline .item::before{
+  content:"";
+  position:absolute;
+  left:-44px;
+  top:32px;
+  width:16px;
+  height:16px;
+  background:linear-gradient(135deg,var(--accent1),var(--accent2));
+  border-radius:50%;
+  border:3px solid var(--bg);
+  box-shadow:0 0 0 4px var(--accent1);
+  transition:all 0.3s ease;
+}
+
+.timeline .item:hover::before{
+  box-shadow:0 0 0 6px var(--accent2);
+  transform:scale(1.2);
+}
+
+.timeline .item h3{
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--text);
+}
+
+.timeline .item p.muted{
+  margin:10px 0;
+  color:var(--accent3);
+  font-weight:600;
+  font-size:0.95rem;
+}
+
+.timeline .item p:last-child{
+  color:var(--muted);
+  font-size:1.05rem;
+  line-height:1.6;
+  font-weight:500;
+}
+
+/* 3D SKILLS */
+.skill{
+  padding:16px 28px;
+  border-radius:999px;
+  background:var(--glass);
+  border:2px solid var(--border);
+  display:inline-block;
+  margin:8px;
+  font-weight:700;
+  font-size:1rem;
+  color:var(--text);
+  transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+  cursor:pointer;
+}
+
+.skill:hover{
+  border-color:var(--accent1);
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 10px 25px rgba(137,152,109,0.25);
+  background:rgba(197,216,157,0.2);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  margin-top:140px;
+  padding:50px;
+  color:var(--muted);
+  font-size:1rem;
+  font-weight:600;
+}
+
+/* REVEAL */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero h1{font-size:3rem}
+  .stats{grid-template-columns:1fr}
+  .shape{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<div class="cursor"></div>
+
+<div class="shape shape1"></div>
+<div class="shape shape2"></div>
+<div class="shape shape3"></div>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero reveal">
+    <div>
+      <h1>CA <span>Vidhi Patel</span></h1>
+      <p>
+        Chartered Accountant delivering clarity in audit,
+        taxation, compliance, and financial reporting for
+        growing businesses.
+      </p>
+
+      <div class="stats">
+        <div class="stat">
+          <h3>5+</h3>
+          <p>Years Training</p>
+        </div>
+        <div class="stat">
+          <h3>100%</h3>
+          <p>Compliance Focus</p>
+        </div>
+        <div class="stat">
+          <h3>Team Lead</h3>
+          <p>Current Role</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p><strong>Email:</strong><br>vidhip042@gmail.com</p><br>
+      <p><strong>LinkedIn:</strong><br>linkedin.com/in/ca-vidhi-patel</p><br>
+      <p><strong>Location:</strong><br>Surat, Gujarat</p>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <section class="reveal">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="item">
+        <h3>Team Lead – Global Insights KPO</h3>
+        <p class="muted">2025 – Present</p>
+        <p>Leading accounting operations, client delivery, compliance accuracy.</p>
+      </div>
+      <div class="item">
+        <h3>GST and Internal Audit</h3>
+        <p class="muted">2024 - 2025</p>
+        <p>HM Shah & Co (CA Firm)</p>
+      </div>
+      <div class="item">
+        <h3>Articleship Training</h3>
+        <p class="muted">2021 – 2023</p>
+        <p>Audit, Income Tax, Financial Accounting, RERA compliance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="reveal">
+    <h2>Education</h2>
+    <div class="grid">
+      <div class="card">
+        <h3 style="font-weight:700;font-size:1.2rem;margin-bottom:8px;color:var(--text);">Chartered Accountant</h3>
+        <p style="font-weight:600;">ICAI</p>
+        <p class="muted" style="font-weight:600;margin-top:6px;">2019 – 2024</p>
+      </div>
+      <div class="card">
+        <h3 style="font-weight:700;font-size:1.2rem;margin-bottom:8px;color:var(--text);">B.Com – International Finance</h3>
+        <p style="font-weight:600;">VNSGU, Surat</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="reveal">
+    <h2>Core Skills</h2>
+    <div>
+      <span class="skill">Audit & Compliance</span>
+      <span class="skill">Income Tax & GST</span>
+      <span class="skill">Financial Accounting</span>
+      <span class="skill">Problem Solving</span>
+      <span class="skill">Microsoft Office</span>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+© 2026 CA Vidhi Patel · Portfolio
+</footer>
+
+<script>
+/* CURSOR */
+const cursor=document.querySelector(".cursor");
+document.addEventListener("mousemove",e=>{
+  cursor.style.left=e.clientX+"px";
+  cursor.style.top=e.clientY+"px";
+});
+
+/* CURSOR TRAIL */
+document.addEventListener("mousemove",e=>{
+  const trail=document.createElement("div");
+  trail.style.cssText=`
+    position:fixed;
+    width:8px;
+    height:8px;
+    background:rgba(197,216,157,0.6);
+    border-radius:50%;
+    pointer-events:none;
+    left:${e.clientX}px;
+    top:${e.clientY}px;
+    transform:translate(-50%,-50%);
+    z-index:9999;
+  `;
+  document.body.appendChild(trail);
+  setTimeout(()=>trail.remove(),400);
+});
+
+/* REVEAL */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add("show");
+  });
+},{threshold:.15});
+document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+</script>
+
+</body>
+</html>
+
