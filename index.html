@@ -4,21 +4,20 @@
 <meta charset="UTF-8">
 <title>CA Vidhi Patel - Chartered Accountant</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="CA Vidhi Patel – Chartered Accountant specializing in Audit, Taxation, Compliance, and Financial Reporting.">
+<meta name="keywords" content="Chartered Accountant, CA Vidhi Patel, GST, Audit, Tax Consultant, India">
+<meta name="author" content="CA Vidhi Patel">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <link rel="stylesheet" href="style.css">
-
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
-    "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
-  }
-}
-</script>
 </head>
+<noscript>
+  <style>
+    .hero-3d { display:none; }
+  </style>
+</noscript>
+
 <body>
 
 <!-- SCROLL PROGRESS -->
@@ -31,32 +30,62 @@
 
 <!-- 3D HERO SECTION -->
 <section class="hero-3d">
-  <canvas id="hero3d"></canvas>
+  <!-- Live Particles Canvas -->
+  <canvas id="particles"></canvas>
   
-  <div class="hero-overlay">
-    <div class="hero-content">
+  <!-- Big 3D Text -->
+  <div class="big-3d-text">
+    <div class="text-layer layer-1">CA</div>
+    <div class="text-layer layer-2">VIDHI</div>
+    <div class="text-layer layer-3">PATEL</div>
+  </div>
+  
+  <!-- Floating elements -->
+  <div class="float-element elem-1"></div>
+  <div class="float-element elem-2"></div>
+  <div class="float-element elem-3"></div>
+  <div class="float-element elem-4"></div>
+  <div class="float-element elem-5"></div>
+  <div class="float-element elem-6"></div>
+  
+  <!-- Rings -->
+  <div class="ring ring-1"></div>
+  <div class="ring ring-2"></div>
+  <div class="ring ring-3"></div>
+  
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <i class="bi bi-chevron-down"></i>
+  </div>
+</section>
+
+<!-- HERO CONTENT SECTION -->
+<section class="hero-content-section">
+  <div class="container">
+    <div class="hero-text-content">
+      <h1 class="hero-title-solid">CA VIDHI PATEL</h1>
       <p class="hero-subtitle">Chartered Accountant</p>
       <p class="hero-description">
         Delivering clarity in audit, taxation, compliance, and financial reporting for growing businesses.
       </p>
-      <div class="stats" style="max-width:600px;margin:0 auto;">
+      <div class="stats">
         <div class="stat">
-          <i class="bi bi-calendar3" style="color:var(--accent1);"></i>
-          <h3 style="font-size:1.8rem;">5+</h3>
+          <i class="bi bi-calendar3"></i>
+          <h3>5+</h3>
           <p>Years Experience</p>
         </div>
         <div class="stat">
-          <i class="bi bi-check-circle" style="color:var(--accent1);"></i>
-          <h3 style="font-size:1.8rem;">100%</h3>
+          <i class="bi bi-check-circle"></i>
+          <h3>100%</h3>
           <p>Compliance Focus</p>
         </div>
         <div class="stat">
-          <i class="bi bi-person-badge" style="color:var(--accent1);"></i>
-          <h3 style="font-size:1.8rem;">Lead</h3>
+          <i class="bi bi-person-badge"></i>
+          <h3>Lead</h3>
           <p>Current Role</p>
         </div>
       </div>
-      <div class="cta-group" style="margin-top:40px;">
+      <div class="cta-group">
         <a href="#contact" class="btn-custom btn-primary-custom">
           <i class="bi bi-envelope"></i>
           Get in Touch
@@ -67,11 +96,6 @@
         </a>
       </div>
     </div>
-  </div>
-  
-  <div class="scroll-indicator">
-    <span>Scroll</span>
-    <i class="bi bi-chevron-down"></i>
   </div>
 </section>
 
@@ -85,7 +109,7 @@
     </div>
     <div class="timeline">
       <div class="item">
-        <span class="timeline-date">2025 – Present</span>
+        <span class="timeline-date">2025 - Present</span>
         <h3>Global Insights KPO</h3>
         <h4>Team Lead </h4>
         <p>Leading accounting operations, client delivery, and ensuring compliance accuracy across multiple projects.</p>
@@ -97,7 +121,7 @@
         <p>Specialized in GST compliance, internal audits, and financial verification processes.</p>
       </div>
       <div class="item">
-        <span class="timeline-date">2021 – 2023</span>
+        <span class="timeline-date">2021 - 2023</span>
         <h3>Articleship Training</h3>
         <h4>Training Period</h4>
         <p>Comprehensive training in Audit, Income Tax, Financial Accounting, and RERA compliance.</p>
@@ -127,7 +151,7 @@
           <div class="card-icon">
             <i class="bi bi-book"></i>
           </div>
-          <h3>B.Com – International Finance</h3>
+          <h3>B.Com - International Finance</h3>
           <p style="font-weight:600;color:var(--text);">VNSGU, Surat</p>
           <p style="color:var(--muted);">Bachelor of Commerce with specialization in International Finance and business studies.</p>
         </div>
@@ -204,20 +228,20 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="container">
+  <div>
     <div class="footer-content">
       <div class="footer-logo">CA <span>Vidhi Patel</span></div>
       <div class="footer-social">
         <a href="https://www.linkedin.com/in/ca-vidhi-patel/" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
         <a href="mailto:vidhip042@gmail.com" title="Email"><i class="bi bi-envelope"></i></a>
       </div>
-      <h4 class="footer-text">© 2025 CA Vidhi Patel.</h4>
+      <h4 class="footer-text">© 2025 Vidhi Patel.</h4>
     </div>
   </div>
 </footer>
 
-<script type="module">
-// SCROLL PROGRESS
+<script>
+// SCROLL PROGRESS & UI LOGIC
 window.addEventListener("scroll",()=>{
   const scrollProgress=document.getElementById("scrollProgress");
   const scrollTop=document.documentElement.scrollTop;
@@ -225,7 +249,6 @@ window.addEventListener("scroll",()=>{
   const scrolled=(scrollTop / scrollHeight) * 100;
   scrollProgress.style.width=scrolled + "%";
   
-  // BACK TO TOP
   const backToTop=document.getElementById("backToTop");
   if(scrollTop > 500){
     backToTop.classList.add("visible");
@@ -238,194 +261,211 @@ document.getElementById("backToTop").addEventListener("click",()=>{
   window.scrollTo({top:0,behavior:"smooth"});
 });
 
-// 3D HERO ANIMATION
-import * as THREE from "three";
-import { FontLoader } from "three/addons/loaders/FontLoader.js";
-import { TextGeometry } from "three/addons/geometries/TextGeometry.js";
-
-const canvas = document.getElementById("hero3d");
-if (canvas) {
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.z = 15;
-  camera.position.y = 2;
-
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, canvas: canvas });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-  // LIGHTS
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-  scene.add(ambientLight);
-
-  const cyanLight = new THREE.PointLight(0x00ffff, 80);
-  cyanLight.position.set(8, 8, 8);
-  scene.add(cyanLight);
-
-  const magentaLight = new THREE.PointLight(0xff00ff, 60);
-  magentaLight.position.set(-8, -4, 6);
-  scene.add(magentaLight);
-
-  const purpleLight = new THREE.PointLight(0x8b5cf6, 40);
-  purpleLight.position.set(0, 0, 10);
-  scene.add(purpleLight);
-
-  // PARTICLES
-  const particlesGeometry = new THREE.BufferGeometry();
-  const particleCount = 500;
-  const posArray = new Float32Array(particleCount * 3);
-
-  for(let i = 0; i < particleCount * 3; i++) {
-    posArray[i] = (Math.random() - 0.5) * 30;
+// Mouse interaction for 3D effect
+document.addEventListener("mousemove",(e)=>{
+  const hero3d=document.querySelector('.hero-3d');
+  if(!hero3d) return;
+  
+  const x=(e.clientX/window.innerWidth-0.5)*15;
+  const y=(e.clientY/window.innerHeight-0.5)*15;
+  
+  const textContainer=document.querySelector('.big-3d-text');
+  if(textContainer){
+    textContainer.style.transform=`perspective(1200px) rotateY(${x}deg) rotateX(${-y}deg)`;
   }
-
-  particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-  const particlesMaterial = new THREE.PointsMaterial({
-    size: 0.05,
-    color: 0x00f2ff,
-    transparent: true,
-    opacity: 0.6,
-    blending: THREE.AdditiveBlending
+  
+  const elements=document.querySelectorAll('.float-element');
+  elements.forEach((el,i)=>{
+    const offset=(i+1)*8;
+    el.style.transform=`translate(${x*offset}px, ${y*offset}px) rotate(${x*0.3}deg)`;
   });
-
-  const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-  scene.add(particlesMesh);
-
-  // 3D TEXT
-  let textMesh;
-  let targetRotationX = 0;
-  let targetRotationY = 0;
-  let mouseX = 0;
-  let mouseY = 0;
-  let scrollY = 0;
-
-  const loader = new FontLoader();
-  loader.load("https://threejs.org/examples/fonts/helvetiker_bold.typeface.json", (font) => {
-    // Create group to hold all text elements
-    const textGroup = new THREE.Group();
-    
-    // CA Text
-    const caGeometry = new TextGeometry("CA", {
-      font: font,
-      size: 0.8,
-      height: 0.3,
-      bevelEnabled: true,
-      bevelThickness: 0.04,
-      bevelSize: 0.02,
-      bevelSegments: 4
-    });
-    caGeometry.center();
-    
-    // VIDHI Text
-    const vidhiGeometry = new TextGeometry("VIDHI", {
-      font: font,
-      size: 1.0,
-      height: 0.35,
-      bevelEnabled: true,
-      bevelThickness: 0.05,
-      bevelSize: 0.025,
-      bevelSegments: 5
-    });
-    vidhiGeometry.center();
-    
-    // PATEL Text
-    const patelGeometry = new TextGeometry("PATEL", {
-      font: font,
-      size: 0.8,
-      height: 0.3,
-      bevelEnabled: true,
-      bevelThickness: 0.04,
-      bevelSize: 0.02,
-      bevelSegments: 4
-    });
-    patelGeometry.center();
-    
-    const material = new THREE.MeshStandardMaterial({
-      color: 0x00f2ff,
-      metalness: 0.7,
-      roughness: 0.2,
-      emissive: 0x003344,
-      emissiveIntensity: 0.5
-    });
-
-    const caMesh = new THREE.Mesh(caGeometry, material);
-    const vidhiMesh = new THREE.Mesh(vidhiGeometry, material);
-    const patelMesh = new THREE.Mesh(patelGeometry, material);
-    
-    caMesh.position.y = 1.0;
-    vidhiMesh.position.y = -0.1;
-    patelMesh.position.y = -1.2;
-    
-    textGroup.add(caMesh);
-    textGroup.add(vidhiMesh);
-    textGroup.add(patelMesh);
-    
-    textMesh = textGroup;
-    scene.add(textGroup);
+  
+  const rings=document.querySelectorAll('.ring');
+  rings.forEach((ring,i)=>{
+    ring.style.transform=`translate(${-x*(i+1)*2}px, ${-y*(i+1)*2}px)`;
   });
+});
 
-  // MOUSE INTERACTION
-  document.addEventListener("mousemove", (e) => {
-    mouseX = (e.clientX / window.innerWidth) - 0.5;
-    mouseY = (e.clientY / window.innerHeight) - 0.5;
-  });
+// Click to spin
+document.querySelector('.hero-3d').addEventListener('click',function(){
+  const textContainer=document.querySelector('.big-3d-text');
+  if(textContainer){
+    textContainer.style.transition='transform 0.6s ease-out';
+    textContainer.style.transform='perspective(1200px) rotateY(360deg) rotateX(0deg)';
+    setTimeout(()=>{
+      textContainer.style.transition='transform 0.1s';
+    },600);
+  }
+});
 
-  // SCROLL EFFECT
-  window.addEventListener("scroll", () => {
-    scrollY = window.scrollY;
-  });
-
-  // ANIMATION LOOP
-  function animate() {
+// ================================
+// LIVE PARTICLE SYSTEM
+// ================================
+(function(){
+  const canvas=document.getElementById('particles');
+  const ctx=canvas.getContext('2d');
+  
+  let width, height;
+  let particles=[];
+  let mouseX=0, mouseY=0;
+  let targetX=0, targetY=0;
+  
+  // Colors from your palette
+  const colors=['#001F3D','#ED985F','#D8C9A7','#5C6F2B','#DE802B'];
+  
+  // Particle class with 3D depth
+  class Particle{
+    constructor(){
+      this.reset();
+    }
+    
+    reset(){
+      this.x=Math.random()*width;
+      this.y=Math.random()*height;
+      this.z=Math.random()*1000; // Depth (0-1000)
+      this.size=Math.random()*3+1;
+      this.baseSize=this.size;
+      this.color=colors[Math.floor(Math.random()*colors.length)];
+      this.speedX=(Math.random()-0.5)*0.5;
+      this.speedY=(Math.random()-0.5)*0.5;
+      this.opacity=Math.random()*0.5+0.2;
+      this.pulseSpeed=Math.random()*0.02+0.01;
+      this.pulse=0;
+    }
+    
+    update(){
+      // Movement
+      this.x+=this.speedX;
+      this.y+=this.speedY;
+      
+      // Mouse interaction with depth
+      const dx=mouseX-this.x;
+      const dy=mouseY-this.y;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      const maxDist=250;
+      const force=(maxDist-Math.min(dist,maxDist))/maxDist;
+      
+      // Particles with lower z (closer) react more to mouse
+      const depthFactor=this.z/1000;
+      this.size=this.baseSize*(0.5+depthFactor*1.5);
+      
+      if(dist<maxDist){
+        this.x-=(dx/dist)*force*2*(0.5+depthFactor);
+        this.y-=(dy/dist)*force*2*(0.5+depthFactor);
+      }
+      
+      // Pulse effect
+      this.pulse+=this.pulseSpeed;
+      this.opacity=0.2+Math.sin(this.pulse)*0.15;
+      
+      // Wrap around edges
+      if(this.x<0)this.x=width;
+      if(this.x>width)this.x=0;
+      if(this.y<0)this.y=height;
+      if(this.y>height)this.y=0;
+    }
+    
+    draw(){
+      // Scale based on depth
+      const scale=0.3+this.z/1500;
+      const size=this.size*scale;
+      
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, size, 0, Math.PI*2);
+      ctx.fillStyle=this.color;
+      ctx.globalAlpha=this.opacity;
+      ctx.fill();
+      
+      // Glow effect for closer particles
+      if(this.z>500){
+        ctx.shadowBlur=15;
+        ctx.shadowColor=this.color;
+      }else{
+        ctx.shadowBlur=0;
+      }
+    }
+  }
+  
+  function initParticles(){
+    particles=[];
+    const count=Math.min(80, Math.floor((width*height)/15000));
+    for(let i=0;i<count;i++){
+      particles.push(new Particle());
+    }
+  }
+  
+  function resize(){
+    width=window.innerWidth;
+    height=window.innerHeight;
+    canvas.width=width;
+    canvas.height=height;
+    initParticles();
+  }
+  
+  function animate(){
+    ctx.clearRect(0,0,width,height);
+    ctx.globalAlpha=1;
+    ctx.shadowBlur=0;
+    
+    // Smooth mouse follow
+    targetX+=(mouseX-targetX)*0.05;
+    targetY+=(mouseY-targetY)*0.05;
+    
+    // Sort particles by z for proper layering
+    particles.sort((a,b)=>a.z-b.z);
+    
+    // Update and draw particles
+    particles.forEach(p=>{
+      p.update();
+      p.draw();
+    });
+    
+    // Draw connections between nearby particles
+    ctx.strokeStyle='#001F3D';
+    ctx.lineWidth=0.5;
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        const dx=particles[i].x-particles[j].x;
+        const dy=particles[i].y-particles[j].y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        const maxDist=120;
+        if(dist<maxDist){
+          const opacity=(1-dist/maxDist)*0.15;
+          ctx.strokeStyle=particles[i].color;
+          ctx.globalAlpha=opacity;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    
     requestAnimationFrame(animate);
-
-    // Rotate particles
-    particlesMesh.rotation.y += 0.001;
-    particlesMesh.rotation.x += 0.0005;
-
-    // Mouse parallax on particles
-    particlesMesh.rotation.y += mouseX * 0.02;
-    particlesMesh.rotation.x += mouseY * 0.02;
-
-    if (textMesh) {
-      // Constant rotation
-      textMesh.rotation.y += 0.003;
-
-      // Mouse influence with smooth lerp
-      targetRotationY = mouseX * 0.5;
-      targetRotationX = mouseY * 0.3;
-      textMesh.rotation.y += (targetRotationY - textMesh.rotation.y) * 0.05;
-      textMesh.rotation.x += (targetRotationX - textMesh.rotation.x) * 0.05;
-
-      // Scroll effect - move text down as user scrolls
-      textMesh.position.y = Math.sin(Date.now() * 0.001) * 0.1 - (scrollY * 0.005);
-
-      // Scale down slightly on scroll
-      const scale = Math.max(0.6, 1 - scrollY * 0.001);
-      textMesh.scale.set(scale, scale, scale);
-    }
-
-    renderer.render(scene, camera);
   }
-
+  
+  // Event listeners
+  window.addEventListener('resize',resize);
+  
+  canvas.addEventListener('mousemove',(e)=>{
+    mouseX=e.clientX;
+    mouseY=e.clientY;
+  });
+  
+  canvas.addEventListener('mouseleave',()=>{
+    mouseX=width/2;
+    mouseY=height/2;
+  });
+  
+  // Initialize
+  resize();
+  mouseX=width/2;
+  mouseY=height/2;
   animate();
+})();
 
-  // RESIZE HANDLER
-  window.addEventListener("resize", () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  });
-
-  // Smooth scroll on click
-  document.querySelector('.scroll-indicator')?.addEventListener('click', () => {
-    const container = document.querySelector('.container');
-    if (container) {
-      container.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-}
 </script>
+
 </body>
 </html>
 
