@@ -2,689 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Vidhi Patel</title>
+<title>CA Vidhi Patel - Chartered Accountant</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-<style>
-/* LOADING SCREEN */
-.loader{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:var(--bg);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-  transition:opacity 0.6s ease, visibility 0.6s ease;
-}
-
-.loader.hidden{
-  opacity:0;
-  visibility:hidden;
-}
-
-.loader-content{
-  text-align:center;
-}
-
-.loader-circle{
-  width:60px;
-  height:60px;
-  border:4px solid var(--border);
-  border-top-color:var(--accent1);
-  border-radius:50%;
-  animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-  to{transform:rotate(360deg);}
-}
-
-.loader-text{
-  margin-top:20px;
-  font-weight:700;
-  color:var(--text);
-  font-size:1.1rem;
-}
-
-/* SCROLL PROGRESS */
-.scroll-progress{
-  position:fixed;
-  top:0;
-  left:0;
-  height:3px;
-  background:linear-gradient(90deg,var(--accent1),var(--accent2),var(--accent3));
-  z-index:1000;
-  transition:width 0.1s ease;
-}
-
-/* BACK TO TOP */
-.back-to-top{
-  position:fixed;
-  bottom:30px;
-  right:30px;
-  width:50px;
-  height:50px;
-  background:var(--glass);
-  border:2px solid var(--border);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--text);
-  font-size:1.3rem;
-  cursor:pointer;
-  opacity:0;
-  visibility:hidden;
-  transform:translateY(20px);
-  transition:all 0.4s ease;
-  z-index:100;
-}
-
-.back-to-top.visible{
-  opacity:1;
-  visibility:visible;
-  transform:translateY(0);
-}
-
-.back-to-top:hover{
-  background:var(--accent1);
-  border-color:var(--accent1);
-  color:#fff;
-  transform:translateY(-5px);
-}
-
-/* THEME */
-:root{
-  --bg:#F6F0D7;
-  --accent1:#C5D89D;
-  --accent2:#9CAB84;
-  --accent3:#89986D;
-  --glass:rgba(153,134,109,0.12);
-  --border:rgba(153,134,109,0.3);
-  --text:#2a251d;
-  --muted:#5a5248;
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;}
-body{
-  font-family:Inter,system-ui;
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
-  min-height:100vh;
-}
-
-/* FLOATING 3D SHAPES */
-.shape{
-  position:fixed;
-  pointer-events:none;
-  z-index:0;
-  opacity:0.5;
-}
-
-.shape1{
-  width:250px;
-  height:250px;
-  background:linear-gradient(135deg,rgba(156,171,132,0.5),rgba(137,152,109,0.5));
-  border-radius:30%70%70%30%/30%30%70%70%;
-  top:-80px;
-  right:-80px;
-  animation:float1 10s ease-in-out infinite;
-}
-
-.shape2{
-  width:180px;
-  height:180px;
-  background:linear-gradient(135deg,rgba(137,152,109,0.5),rgba(120,135,100,0.5));
-  border-radius:60%40%30%70%/60%30%70%40%;
-  bottom:-40px;
-  left:-40px;
-  animation:float2 12s ease-in-out infinite reverse;
-}
-
-.shape3{
-  width:120px;
-  height:120px;
-  background:linear-gradient(135deg,rgba(156,171,132,0.4),rgba(120,135,100,0.4));
-  border-radius:50%;
-  top:30%;
-  left:5%;
-  animation:float3 15s ease-in-out infinite;
-}
-
-@keyframes float1{
-  0%,100%{transform:translateY(0) rotate(0deg);}
-  50%{transform:translateY(-20px) rotate(5deg);}
-}
-
-@keyframes float2{
-  0%,100%{transform:translateY(0) rotate(0deg);}
-  50%{transform:translateY(-30px) rotate(-5deg);}
-}
-
-@keyframes float3{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-20px);}
-}
-
-/* CURSOR GLOW */
-.cursor{
-  position:fixed;
-  width:400px;
-  height:400px;
-  background:radial-gradient(circle,rgba(197,216,157,0.15),transparent 50%);
-  opacity:.15;
-  pointer-events:none;
-  transform:translate(-50%,-50%);
-  z-index:100;
-  mix-blend-mode:multiply;
-}
-
-/* LAYOUT */
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:80px 24px;
-  position:relative;
-  z-index:1;
-}
-
-/* HERO */
-.hero{
-  display:grid;
-  grid-template-columns:1.3fr .7fr;
-  gap:60px;
-  align-items:start;
-  min-height:80vh;
-}
-
-.hero-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  background:rgba(197,216,157,0.2);
-  border:1px solid var(--accent1);
-  border-radius:999px;
-  padding:8px 16px;
-  font-size:0.85rem;
-  font-weight:600;
-  color:var(--accent3);
-  margin-bottom:20px;
-}
-
-.hero-badge i{
-  font-size:0.7rem;
-}
-
-.hero h1{
-  font-size:4rem;
-  font-weight:800;
-  color:var(--text);
-  letter-spacing:-1px;
-  line-height:1.1;
-  margin-bottom:20px;
-}
-
-.hero h1 span{
-  background:linear-gradient(135deg,var(--accent3),var(--accent2));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-
-.hero p{
-  color:var(--muted);
-  font-size:1.2rem;
-  font-weight:500;
-  line-height:1.7;
-  margin-bottom:35px;
-}
-
-/* CTA BUTTONS */
-.cta-group{
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
-}
-
-.btn-custom{
-  padding:14px 28px;
-  border-radius:12px;
-  font-weight:700;
-  font-size:0.95rem;
-  transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-}
-
-.btn-primary-custom{
-  background:linear-gradient(135deg,var(--accent2),var(--accent3));
-  border:2px solid transparent;
-  color:#fff;
-}
-
-.btn-primary-custom:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 30px rgba(137,152,109,0.4);
-}
-
-.btn-secondary-custom{
-  background:transparent;
-  border:2px solid var(--border);
-  color:var(--text);
-}
-
-.btn-secondary-custom:hover{
-  border-color:var(--accent1);
-  background:rgba(197,216,157,0.1);
-  transform:translateY(-3px);
-}
-
-/* STATS */
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  margin-top:50px;
-  gap:20px;
-}
-
-.stat{
-  text-align:center;
-  padding:25px 20px;
-  background:var(--glass);
-  border:1px solid var(--border);
-  border-radius:16px;
-  transition:all 0.4s ease;
-}
-
-.stat:hover{
-  transform:translateY(-8px);
-  border-color:var(--accent1);
-  box-shadow:0 15px 30px rgba(137,152,109,0.15);
-}
-
-.stat i{
-  font-size:1.8rem;
-  color:var(--accent2);
-  margin-bottom:12px;
-}
-
-.stat h3{
-  font-size:2.2rem;
-  font-weight:800;
-  color:var(--text);
-}
-
-.stat p{
-  font-size:0.9rem;
-  color:var(--muted);
-  font-weight:600;
-  margin-top:5px;
-}
-
-/* SECTIONS */
-section{padding-top:60px;margin-top:0;}
-
-.section-header{
-  text-align:center;
-  margin-bottom:50px;
-}
-
-.section-header h2{
-  font-size:2.5rem;
-  font-weight:800;
-  color:var(--text);
-  position:relative;
-  display:inline-block;
-  margin-bottom:15px;
-}
-
-.section-header h2::after{
-  content:"";
-  position:absolute;
-  bottom:-8px;
-  left:50%;
-  transform:translateX(-50%);
-  width:80px;
-  height:4px;
-  background:linear-gradient(90deg,var(--accent1),var(--accent2));
-  border-radius:3px;
-}
-
-.section-header p{
-  color:var(--muted);
-  font-size:1.1rem;
-  max-width:600px;
-  margin:0 auto;
-}
-
-/* 3D GLASS CARD */
-.card{
-  background:var(--glass);
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:28px;
-  backdrop-filter:blur(16px);
-  transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
-  height:100%;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-  border-color:var(--accent1);
-  box-shadow:0 20px 40px rgba(137,152,109,0.15);
-}
-
-.card-icon{
-  width:60px;
-  height:60px;
-  background:linear-gradient(135deg,var(--accent1),var(--accent2));
-  border-radius:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-bottom:20px;
-}
-
-.card-icon i{
-  font-size:1.5rem;
-  color:#fff;
-}
-
-.card h3{
-  font-size:1.2rem;
-  font-weight:700;
-  color:var(--text);
-  margin-bottom:10px;
-}
-
-.card p{
-  color:var(--muted);
-  font-size:0.95rem;
-  line-height:1.6;
-}
-
-/* CONTACT CARD */
-.contact-card{
-  background:var(--glass);
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:35px;
-  text-align:center;
-}
-
-.contact-item{
-  display:flex;
-  align-items:center;
-  gap:15px;
-  padding:18px;
-  background:rgba(255,255,255,0.3);
-  border-radius:12px;
-  margin-bottom:15px;
-  transition:all 0.3s ease;
-}
-
-.contact-item:hover{
-  transform:translateX(5px);
-  background:rgba(197,216,157,0.2);
-}
-
-.contact-item i{
-  font-size:1.4rem;
-  color:var(--accent2);
-  width:45px;
-  height:45px;
-  background:rgba(197,216,157,0.2);
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.contact-item div{
-  text-align:left;
-}
-
-.contact-item strong{
-  display:block;
-  font-size:0.8rem;
-  color:var(--muted);
-  font-weight:600;
-  margin-bottom:3px;
-}
-
-.contact-item span{
-  font-weight:700;
-  color:var(--text);
-}
-
-/* TIMELINE */
-.timeline{
-  position:relative;
-  padding-left:40px;
-}
-
-.timeline::before{
-  content:"";
-  position:absolute;
-  left:15px;
-  top:0;
-  bottom:0;
-  width:3px;
-  background:linear-gradient(180deg,var(--accent1),var(--accent2),var(--accent3));
-  border-radius:3px;
-}
-
-.timeline .item{
-  position:relative;
-  padding:28px 32px;
-  background:var(--glass);
-  border:1px solid var(--border);
-  border-radius:16px;
-  margin-bottom:25px;
-  transition:all 0.4s ease;
-}
-
-.timeline .item::before{
-  content:"";
-  position:absolute;
-  left:-33px;
-  top:32px;
-  width:18px;
-  height:18px;
-  background:linear-gradient(135deg,var(--accent1),var(--accent2));
-  border-radius:50%;
-  border:4px solid var(--bg);
-  box-shadow:0 0 0 4px var(--accent1);
-  transition:all 0.3s ease;
-}
-
-.timeline .item:hover{
-  transform:translateX(10px);
-  border-color:var(--accent1);
-}
-
-.timeline .item:hover::before{
-  box-shadow:0 0 0 6px var(--accent2);
-  transform:scale(1.2);
-}
-
-.timeline-date{
-  display:inline-block;
-  background:rgba(197,216,157,0.2);
-  border:1px solid var(--accent1);
-  border-radius:8px;
-  padding:6px 14px;
-  font-size:0.85rem;
-  font-weight:700;
-  color:var(--accent3);
-  margin-bottom:12px;
-}
-
-.timeline .item h3{
-  font-size:1.25rem;
-  font-weight:700;
-  color:var(--text);
-  margin-bottom:8px;
-}
-
-.timeline .item h4{
-  font-size:1rem;
-  font-weight:600;
-  color:var(--accent2);
-  margin-bottom:10px;
-}
-
-.timeline .item p{
-  color:var(--muted);
-  font-size:0.95rem;
-  line-height:1.6;
-}
-
-/* SKILLS */
-.skills-container{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  justify-content:center;
-}
-
-.skill{
-  padding:14px 24px;
-  border-radius:999px;
-  background:var(--glass);
-  border:2px solid var(--border);
-  font-weight:700;
-  font-size:0.95rem;
-  color:var(--text);
-  transition:all 0.4s ease;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.skill i{
-  color:var(--accent2);
-}
-
-.skill:hover{
-  border-color:var(--accent1);
-  transform:translateY(-4px) scale(1.05);
-  background:rgba(197,216,157,0.2);
-  box-shadow:0 10px 25px rgba(137,152,109,0.25);
-}
-
-/* GRID */
-.row-custom{
-  --bs-gutter-x:24px;
-  --bs-gutter-y:24px;
-}
-
-/* FOOTER */
-footer{
-  background:rgba(153,134,109,0.08);
-  border-top:1px solid var(--border);
-  margin-top:100px;
-  padding:60px 0 30px;
-}
-
-.footer-content{
-  text-align:center;
-}
-
-.footer-logo{
-  font-size:1.8rem;
-  font-weight:800;
-  color:var(--text);
-  margin-bottom:20px;
-}
-
-.footer-logo span{
-  color:var(--accent2);
-}
-
-.footer-social{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  margin-bottom:30px;
-}
-
-.footer-social a{
-  width:48px;
-  height:48px;
-  background:var(--glass);
-  border:2px solid var(--border);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--text);
-  font-size:1.2rem;
-  transition:all 0.3s ease;
-}
-
-.footer-social a:hover{
-  background:var(--accent1);
-  border-color:var(--accent1);
-  color:#fff;
-  transform:translateY(-5px);
-}
-
-.footer-text{
-  color:var(--muted);
-  font-size:0.95rem;
-}
-
-/* REVEAL */
-.reveal{
-  opacity:0;
-  transform:translateY(50px);
-  transition:all 0.8s cubic-bezier(0.175,0.885,0.32,1.275);
-}
-
-.reveal.show{
-  opacity:1;
-  transform:none;
-}
-
-/* RESPONSIVE */
-@media(max-width:992px){
-  .hero{grid-template-columns:1fr;min-height:auto;gap:40px}
-  .hero h1{font-size:3rem}
-  .stats{grid-template-columns:repeat(3,1fr)}
-  .shape{display:none}
-}
-
-@media(max-width:768px){
-  .hero h1{font-size:2.5rem}
-  .section-header h2{font-size:2rem}
-  .stats{grid-template-columns:1fr}
-  .cta-group{flex-direction:column}
-  .btn-custom{width:100%;justify-content:center}
-}
-</style>
+<link rel="stylesheet" href="style.css">
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
+  }
+}
+</script>
 </head>
 <body>
-
-<!-- LOADING SCREEN -->
-<div class="loader">
-  <div class="loader-content">
-    <div class="loader-circle"></div>
-    <div class="loader-text">Loading...</div>
-  </div>
-</div>
 
 <!-- SCROLL PROGRESS -->
 <div class="scroll-progress" id="scrollProgress"></div>
@@ -694,30 +29,34 @@ footer{
   <i class="bi bi-arrow-up"></i>
 </div>
 
-<!-- CURSOR -->
-<div class="cursor"></div>
-
-<!-- FLOATING SHAPES -->
-<div class="shape shape1"></div>
-<div class="shape shape2"></div>
-<div class="shape shape3"></div>
-
-<div class="container">
-
-  <!-- HERO SECTION -->
-  <section class="hero reveal">
-    <div>
-      <div class="hero-badge">
-        <i class="bi bi-circle-fill"></i>
-        Available for opportunities
-      </div>
-      <h1>CA <span>Vidhi Patel</span></h1>
-      <p>
-        Chartered Accountant delivering clarity in audit,
-        taxation, compliance, and financial reporting for
-        growing businesses.
+<!-- 3D HERO SECTION -->
+<section class="hero-3d">
+  <canvas id="hero3d"></canvas>
+  
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <p class="hero-subtitle">Chartered Accountant</p>
+      <p class="hero-description">
+        Delivering clarity in audit, taxation, compliance, and financial reporting for growing businesses.
       </p>
-      <div class="cta-group">
+      <div class="stats" style="max-width:600px;margin:0 auto;">
+        <div class="stat">
+          <i class="bi bi-calendar3" style="color:var(--accent1);"></i>
+          <h3 style="font-size:1.8rem;">5+</h3>
+          <p>Years Experience</p>
+        </div>
+        <div class="stat">
+          <i class="bi bi-check-circle" style="color:var(--accent1);"></i>
+          <h3 style="font-size:1.8rem;">100%</h3>
+          <p>Compliance Focus</p>
+        </div>
+        <div class="stat">
+          <i class="bi bi-person-badge" style="color:var(--accent1);"></i>
+          <h3 style="font-size:1.8rem;">Lead</h3>
+          <p>Current Role</p>
+        </div>
+      </div>
+      <div class="cta-group" style="margin-top:40px;">
         <a href="#contact" class="btn-custom btn-primary-custom">
           <i class="bi bi-envelope"></i>
           Get in Touch
@@ -727,52 +66,19 @@ footer{
           View Work
         </a>
       </div>
-      <div class="stats">
-        <div class="stat">
-          <i class="bi bi-calendar3"></i>
-          <h3>5+</h3>
-          <p>Years Experience</p>
-        </div>
-        <div class="stat">
-          <i class="bi bi-check-circle"></i>
-          <h3>100%</h3>
-          <p>Compliance Focus</p>
-        </div>
-        <div class="stat">
-          <i class="bi bi-person-badge"></i>
-          <h3>Lead</h3>
-          <p>Current Role</p>
-        </div>
-      </div>
     </div>
+  </div>
+  
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <i class="bi bi-chevron-down"></i>
+  </div>
+</section>
 
-    <div class="contact-card">
-      <div class="contact-item">
-        <i class="bi bi-envelope"></i>
-        <div>
-          <strong>Email</strong>
-          <span>vidhip042@gmail.com</span>
-        </div>
-      </div>
-      <div class="contact-item">
-        <i class="bi bi-linkedin"></i>
-        <div>
-          <strong>LinkedIn</strong>
-          <span>ca-vidhi-patel</span>
-        </div>
-      </div>
-      <div class="contact-item">
-        <i class="bi bi-geo-alt"></i>
-        <div>
-          <strong>Location</strong>
-          <span>Surat, Gujarat</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="container">
 
   <!-- EXPERIENCE SECTION -->
-  <section id="experience" class="reveal">
+  <section id="experience">
     <div class="section-header">
       <h2>Experience</h2>
       <p>My professional journey in chartered accountancy</p>
@@ -800,7 +106,7 @@ footer{
   </section>
 
   <!-- EDUCATION SECTION -->
-  <section class="reveal">
+  <section>
     <div class="section-header">
       <h2>Education</h2>
       <p>Academic qualifications and certifications</p>
@@ -830,7 +136,7 @@ footer{
   </section>
 
   <!-- SKILLS SECTION -->
-  <section class="reveal">
+  <section>
     <div class="section-header">
       <h2>Core Skills</h2>
       <p>Key competencies and expertise areas</p>
@@ -848,7 +154,7 @@ footer{
   </section>
 
   <!-- CONTACT SECTION -->
-  <section id="contact" class="reveal">
+  <section id="contact">
     <div class="section-header">
       <h2>Get in Touch</h2>
       <p>Feel free to reach out for collaborations or inquiries</p>
@@ -905,20 +211,12 @@ footer{
         <a href="https://www.linkedin.com/in/ca-vidhi-patel/" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
         <a href="mailto:vidhip042@gmail.com" title="Email"><i class="bi bi-envelope"></i></a>
       </div>
-      <h4 class="footer-text">© 2026 CA Vidhi Patel.</h4>
-      
+      <h4 class="footer-text">© 2025 CA Vidhi Patel.</h4>
     </div>
   </div>
 </footer>
 
-<script>
-// LOADING SCREEN
-window.addEventListener("load",()=>{
-  setTimeout(()=>{
-    document.querySelector(".loader").classList.add("hidden");
-  },800);
-});
-
+<script type="module">
 // SCROLL PROGRESS
 window.addEventListener("scroll",()=>{
   const scrollProgress=document.getElementById("scrollProgress");
@@ -940,39 +238,193 @@ document.getElementById("backToTop").addEventListener("click",()=>{
   window.scrollTo({top:0,behavior:"smooth"});
 });
 
-// CURSOR
-const cursor=document.querySelector(".cursor");
-document.addEventListener("mousemove",e=>{
-  cursor.style.left=e.clientX+"px";
-  cursor.style.top=e.clientY+"px";
-});
+// 3D HERO ANIMATION
+import * as THREE from "three";
+import { FontLoader } from "three/addons/loaders/FontLoader.js";
+import { TextGeometry } from "three/addons/geometries/TextGeometry.js";
 
-// CURSOR TRAIL
-document.addEventListener("mousemove",e=>{
-  const trail=document.createElement("div");
-  trail.style.cssText=`
-    position:fixed;
-    width:8px;
-    height:8px;
-    background:rgba(197,216,157,0.6);
-    border-radius:50%;
-    pointer-events:none;
-    left:${e.clientX}px;
-    top:${e.clientY}px;
-    transform:translate(-50%,-50%);
-    z-index:9999;
-  `;
-  document.body.appendChild(trail);
-  setTimeout(()=>trail.remove(),400);
-});
+const canvas = document.getElementById("hero3d");
+if (canvas) {
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.z = 15;
+  camera.position.y = 2;
 
-// REVEAL ON SCROLL
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting) e.target.classList.add("show");
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, canvas: canvas });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  // LIGHTS
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+  scene.add(ambientLight);
+
+  const cyanLight = new THREE.PointLight(0x00ffff, 80);
+  cyanLight.position.set(8, 8, 8);
+  scene.add(cyanLight);
+
+  const magentaLight = new THREE.PointLight(0xff00ff, 60);
+  magentaLight.position.set(-8, -4, 6);
+  scene.add(magentaLight);
+
+  const purpleLight = new THREE.PointLight(0x8b5cf6, 40);
+  purpleLight.position.set(0, 0, 10);
+  scene.add(purpleLight);
+
+  // PARTICLES
+  const particlesGeometry = new THREE.BufferGeometry();
+  const particleCount = 500;
+  const posArray = new Float32Array(particleCount * 3);
+
+  for(let i = 0; i < particleCount * 3; i++) {
+    posArray[i] = (Math.random() - 0.5) * 30;
+  }
+
+  particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+  const particlesMaterial = new THREE.PointsMaterial({
+    size: 0.05,
+    color: 0x00f2ff,
+    transparent: true,
+    opacity: 0.6,
+    blending: THREE.AdditiveBlending
   });
-},{threshold:.1});
-document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+
+  const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+  scene.add(particlesMesh);
+
+  // 3D TEXT
+  let textMesh;
+  let targetRotationX = 0;
+  let targetRotationY = 0;
+  let mouseX = 0;
+  let mouseY = 0;
+  let scrollY = 0;
+
+  const loader = new FontLoader();
+  loader.load("https://threejs.org/examples/fonts/helvetiker_bold.typeface.json", (font) => {
+    // Create group to hold all text elements
+    const textGroup = new THREE.Group();
+    
+    // CA Text
+    const caGeometry = new TextGeometry("CA", {
+      font: font,
+      size: 0.8,
+      height: 0.3,
+      bevelEnabled: true,
+      bevelThickness: 0.04,
+      bevelSize: 0.02,
+      bevelSegments: 4
+    });
+    caGeometry.center();
+    
+    // VIDHI Text
+    const vidhiGeometry = new TextGeometry("VIDHI", {
+      font: font,
+      size: 1.0,
+      height: 0.35,
+      bevelEnabled: true,
+      bevelThickness: 0.05,
+      bevelSize: 0.025,
+      bevelSegments: 5
+    });
+    vidhiGeometry.center();
+    
+    // PATEL Text
+    const patelGeometry = new TextGeometry("PATEL", {
+      font: font,
+      size: 0.8,
+      height: 0.3,
+      bevelEnabled: true,
+      bevelThickness: 0.04,
+      bevelSize: 0.02,
+      bevelSegments: 4
+    });
+    patelGeometry.center();
+    
+    const material = new THREE.MeshStandardMaterial({
+      color: 0x00f2ff,
+      metalness: 0.7,
+      roughness: 0.2,
+      emissive: 0x003344,
+      emissiveIntensity: 0.5
+    });
+
+    const caMesh = new THREE.Mesh(caGeometry, material);
+    const vidhiMesh = new THREE.Mesh(vidhiGeometry, material);
+    const patelMesh = new THREE.Mesh(patelGeometry, material);
+    
+    caMesh.position.y = 1.0;
+    vidhiMesh.position.y = -0.1;
+    patelMesh.position.y = -1.2;
+    
+    textGroup.add(caMesh);
+    textGroup.add(vidhiMesh);
+    textGroup.add(patelMesh);
+    
+    textMesh = textGroup;
+    scene.add(textGroup);
+  });
+
+  // MOUSE INTERACTION
+  document.addEventListener("mousemove", (e) => {
+    mouseX = (e.clientX / window.innerWidth) - 0.5;
+    mouseY = (e.clientY / window.innerHeight) - 0.5;
+  });
+
+  // SCROLL EFFECT
+  window.addEventListener("scroll", () => {
+    scrollY = window.scrollY;
+  });
+
+  // ANIMATION LOOP
+  function animate() {
+    requestAnimationFrame(animate);
+
+    // Rotate particles
+    particlesMesh.rotation.y += 0.001;
+    particlesMesh.rotation.x += 0.0005;
+
+    // Mouse parallax on particles
+    particlesMesh.rotation.y += mouseX * 0.02;
+    particlesMesh.rotation.x += mouseY * 0.02;
+
+    if (textMesh) {
+      // Constant rotation
+      textMesh.rotation.y += 0.003;
+
+      // Mouse influence with smooth lerp
+      targetRotationY = mouseX * 0.5;
+      targetRotationX = mouseY * 0.3;
+      textMesh.rotation.y += (targetRotationY - textMesh.rotation.y) * 0.05;
+      textMesh.rotation.x += (targetRotationX - textMesh.rotation.x) * 0.05;
+
+      // Scroll effect - move text down as user scrolls
+      textMesh.position.y = Math.sin(Date.now() * 0.001) * 0.1 - (scrollY * 0.005);
+
+      // Scale down slightly on scroll
+      const scale = Math.max(0.6, 1 - scrollY * 0.001);
+      textMesh.scale.set(scale, scale, scale);
+    }
+
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  // RESIZE HANDLER
+  window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  // Smooth scroll on click
+  document.querySelector('.scroll-indicator')?.addEventListener('click', () => {
+    const container = document.querySelector('.container');
+    if (container) {
+      container.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+}
 </script>
 </body>
 </html>
